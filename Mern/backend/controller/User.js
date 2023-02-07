@@ -47,6 +47,26 @@ const addUser = async (req, res) =>{
     }
 }
 
+const loginUser = async (req, res) =>{
+    const {email, password} = req.body
+    const user = await UserModel.findOne({email})
+    console.log(user)
+
+    if(user && bcrypt.compare(password, user.password)){
+        res.json({
+            user: user,
+            auth: true,
+            _id: user.id,
+            name: user.firstName,
+            email: user.email,
+            token: generateToken(user._id)
+        })
+    }else{
+        res.status(400).json({auth: false, message: 'invalid credentials'})
+    }
+}
+
 module.exports = {
     addUser,
+    loginUser
 }
