@@ -15,14 +15,13 @@ export default function Home() {
 
   return (
     <div>
-      
-      <Image className="hero-image" backgroundImage="f" image={pic}>
       <Header/>
+      <Image className="hero-image" backgroundImage="f" image={pic}>
         <h1>Lets see if this text works the quick brown fox jumped over the lazy dog</h1>
       </Image>
       <div className='page-container'>
           <p>Home</p>
-          <button onClick={testApi}>Click</button>
+          <div className='round-button-static' onClick={testApi}>Click</div>
       </div>
     </div>
     )
