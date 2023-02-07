@@ -1,0 +1,11 @@
+.editor-class{
+    background-color: $color-white;
+}
+
+.editor-wraper{
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    height: 100%;
+    max-width: 100%;
+}
