@@ -1,0 +1,33 @@
+.list-item{
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 75vw;
+    background-color: $color-primary;
+    color: $color-white;
+    font-size: 36px;
+    margin: 2.5px;
+    text-justify: center;
+    border-radius: 18px;
+    border: 2px solid;
+    border-color: $color-primary;
+    cursor: pointer;
+    &:hover{
+        background-color: $color-white;
+        color: $color-primary;
+    }
+}
+
+.list-item-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    color: $color-white;
+    font-size: 36px;
+    &:hover{
+        color: $color-primary;
+    }
+}
