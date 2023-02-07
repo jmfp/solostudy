@@ -11,8 +11,13 @@ export default function AddCard() {
     })
   }
 
+  const addQuestion = (question) =>{
+    setCard({...card, front: question})
+  }
+
   return (
-    <div>
+    <div classname='page-container'>
+        <TextInput placeholder='front' onChange={(e) => addQuestion(e.target.value)}/>
         <Button className='round-button-static' onClick={addCard}>Add Card</Button>
     </div>
   )
