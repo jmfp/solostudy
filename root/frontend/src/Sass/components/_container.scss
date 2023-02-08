@@ -116,11 +116,18 @@
     width: 90%;
     height: 60%;
     border-radius: 20px;
-    background-color: $color-white;
+    border-color: $color-primary;
+    border-style: solid;
+    background-color: $color-dark;
     color: $color-primary;
     font-size: 48px;
     font-weight: 700;
     margin: 10px;
+    &:hover{
+        cursor: pointer;
+        background-color: $color-primary;
+        color: $color-white;
+    }
 }
 
 .item-card-info{

@@ -1,6 +1,7 @@
 const mongoose = require("mongoose")
 
 const CardSchema = new mongoose.Schema({
+    deck: String,
     front: {
         type: String,
         required: true

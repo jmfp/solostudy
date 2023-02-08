@@ -6,6 +6,8 @@ import Register from './pages/Register';
 import AddCard from './pages/AddCard';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
+import DeckEdit from './pages/DeckEdit';
+import QuizPage from './pages/QuizPage';
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
           <Route path="/add-card" element={<AddCard/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/dashboard" element={<Dashboard/>}/>
+          <Route path="/deck/:deckId" element={<DeckEdit/>}/>
+          <Route path="/quiz/:deckId" element={<QuizPage/>}/>
         </Routes>
       </Router>
     </div>

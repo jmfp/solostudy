@@ -13,11 +13,24 @@
 
 .modal{
     width: clamp(50%, 700px, 90%);
-    height: min(50%, 300px);
+    height: min(50%, 700px);
     margin: auto;
     padding: 10px;
     border-radius: 24px;
+    border-style: solid;
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-color: $color-primary;
+    background-color: $color-dark;
+}
+
+.modal-button{
+    bottom: 3;
+    display: flex;
+    height: 25%;
+    width: 90%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
 }

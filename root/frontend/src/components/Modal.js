@@ -2,6 +2,7 @@ import React from 'react'
 
 import { motion } from 'framer-motion'
 import Backdrop from './Backdrop'
+import Button from './Button'
 
 const dropIn = {
     //custom animation states
@@ -25,7 +26,7 @@ const dropIn = {
     }
 }
 
-export default function Modal({handleClose, text}) {
+export default function Modal({handleClose, text, children}) {
   return (
     <Backdrop onClick={handleClose}>
         <motion.div
@@ -36,12 +37,9 @@ export default function Modal({handleClose, text}) {
         animate="visible"
         exit="exit"
         >
-
+            <p>{text}</p>
+            {children}
         </motion.div>
-        <motion.button
-        whileHover={{scale: 1.1}}
-        whileTap={{scale: 0.9}}
-        className='round-button-static'>save</motion.button>
     </Backdrop>
   )
 }
