@@ -6,6 +6,7 @@ import { FaPlusCircle } from 'react-icons/fa'
 import TextInput from '../components/TextInput'
 import Button from '../components/Button'
 import {useNavigate} from 'react-router-dom'
+import Header from '../components/Header'
 
 export default function DeckEdit() {
     const [cards, setCards] = useState()
@@ -46,6 +47,7 @@ export default function DeckEdit() {
 
   return (
     <div className='page-container'>
+        <Header/>
         <div className='scroll-container'>
             {!cards ? null :
                 cards.map((card, index) =>{

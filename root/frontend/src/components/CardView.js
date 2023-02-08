@@ -2,6 +2,7 @@ import React from 'react'
 import { BsFillCheckCircleFill  } from 'react-icons/bs'
 import { MdCancel  } from 'react-icons/md'
 import {FcFullTrash} from 'react-icons/fc'
+import Button from './Button'
 
 export default function CardView(props) {
     //this is the view of the card when actually using it to quiz yourself
@@ -20,15 +21,11 @@ export default function CardView(props) {
             </div>
             
         : 
-            <div className="card-info">
+            <div>
                 <p>{props.backText}</p>
                 <div className="medium-container">
-                    <button onClick={props.correctFunction}>
-                        <BsFillCheckCircleFill className='round-button-static'/>
-                    </button>
-                    <button onClick={props.incorrectFunction}>
-                        <MdCancel/>
-                    </button>
+                    <Button className='round-button-static' text='Correct' onClick={props.correctFunction}/>
+                    <Button className='round-button-static' text='Wrong' onClick={props.incorrectFunction}/>
                 </div>
             </div>
         }
@@ -39,9 +36,9 @@ export default function CardView(props) {
                 <FcFullTrash/>
             </div>
             : 
-                <dic>
+                <div>
                     {props.currentCard} / {props.totalCards}
-                </dic>
+                </div>
             }
             
         </div>

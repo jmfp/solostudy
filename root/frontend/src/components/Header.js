@@ -7,6 +7,9 @@ export default function Header() {
         <div className='logo-container'>
             <Link to='/'>Home</Link>
         </div>
+        <div>
+            <Link to='/dashboard'>Dashboard</Link>
+        </div>
     </header>
   )
 }

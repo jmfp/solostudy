@@ -101,7 +101,9 @@
     width: 90%;
     height: 90%;
     border-radius: 20px;
-    background-color: $color-white;
+    border-style: solid;
+    border-color: $color-primary;
+    background-color: $color-dark;
     color: $color-primary;
     font-size: 48px;
     font-weight: 700;

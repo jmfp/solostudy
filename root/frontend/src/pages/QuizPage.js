@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react'
 import CardView from '../components/CardView'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
+import Header from '../components/Header'
 
 export default function QuizPage() {
 
@@ -18,7 +19,7 @@ export default function QuizPage() {
   }, [])
 
   const CalculateScore = () =>{
-    setScore((100 * score / (cardCount)).toFixed(2))
+    setScore((100 * score / (cardCount - 1)).toFixed(2))
   }
 
   const ShowCard = async () =>{
@@ -52,11 +53,11 @@ export default function QuizPage() {
       CalculateScore()
     }
     console.log(index)
-    
   }
 
   return (
     <div className='page-container'>
+      <Header/>
       {!finished ? 
         <CardView
           frontText={cardsInDeck[index].front}
