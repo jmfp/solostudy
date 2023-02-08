@@ -1,7 +1,7 @@
 const mongoose = require("mongoose")
 
 const DeckSchema = new mongoose.Schema({
-    //deckOwner: String,
+    deckOwner: String,
     deckName: {
         type: String,
         required: true

@@ -6,7 +6,7 @@ import Header from '../components/Header'
 import Button from '../components/Button'
 
 export default function Home() {
-  const [deck, setDeck] = useState({deckName: 'test', cardsInDeck: [{}]})
+  const [deck, setDeck] = useState({deckOwner: localStorage.getItem("userId"), deckName: 'test2', cardsInDeck: [{}]})
 
   const addDeck = async() =>{
     await axios.post("http://localhost:5000/api/decks/add-deck", deck).then(res =>{

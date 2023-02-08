@@ -12,8 +12,8 @@ const generateToken = (id) =>{
 const addUser = async (req, res) =>{
     //destruct request for fields needed
     console.log(req.body)
-    const { firstName, email, password, userName} = req.body
-    if(!email || !password || !userName || !firstName){
+    const { email, password} = req.body
+    if(!email || !password){
         res.status(400).json({message: "missing fields"})
     }
 
@@ -21,24 +21,22 @@ const addUser = async (req, res) =>{
     const userExists = await UserModel.findOne({email})
     if(userExists){
         res.status(400).json({message: 'User with this e-mail already exists'})
+        return
     }
 
-    //hasing password before adding it to database
+    //hashing password before adding it to database
     const salt = await bcrypt.genSalt(10)
     const hashedPass = await bcrypt.hash(password, salt)
 
     //create new user
     const user = await UserModel.create({
-        firstName,
         email,
-        password: hashedPass,
-        userName
+        password: hashedPass
     })
     if(user){
         res.status(201).json({
             message: 'user created',
             _id:user.id,
-            name:user.firstName,
             email: user.email,
             token: generateToken(user._id)
         })
@@ -57,7 +55,6 @@ const loginUser = async (req, res) =>{
             user: user,
             auth: true,
             _id: user.id,
-            name: user.firstName,
             email: user.email,
             token: generateToken(user._id)
         })

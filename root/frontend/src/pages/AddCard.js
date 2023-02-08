@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import Button from '../components/Button'
+import TextInput from '../components/TextInput'
 
 export default function AddCard() {
   const [card, setCard] = useState({front: 'whats 2+2', back: '4'})
@@ -16,7 +17,7 @@ export default function AddCard() {
   }
 
   return (
-    <div classname='page-container'>
+    <div className='page-container'>
         <TextInput placeholder='front' onChange={(e) => addQuestion(e.target.value)}/>
         <Button className='round-button-static' onClick={addCard}>Add Card</Button>
     </div>
