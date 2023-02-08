@@ -66,7 +66,7 @@ export default function DeckEdit() {
         <TextInput className="input-field" placeholder='New Card Back' onChange={(e) => setNewCard({...newCard, back: e.target.value})}/>
         <div className='bottom-menu'>
           <FaPlusCircle onClick={AddCard} />
-          <Button className='round-button-static' text='Study' onClick={Study}/>
+          <Button className='round-button-menu' text='Study' onClick={Study}/>
         </div>
       </div>
     </div>

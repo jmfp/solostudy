@@ -33,18 +33,21 @@ export default function Dashboard() {
   
   
   return (
+    <div>
+    <Header/>
     <div className='page-container'>
-      <Header/>
-      {decks.length > 0 ?
-        decks.map(deck =>{
-          return(
-            <DeckView deckName={deck.deckName} deckId={deck._id}/>
-          )
-        })
-        :
-        null
-      }
-        <Button className='round-button-static' onClick={() => setModal(!modal)} text='+'/>
+      <div className='ui-container'>
+        {decks.length > 0 ?
+          decks.map(deck =>{
+            return(
+              <DeckView deckName={deck.deckName} deckId={deck._id}/>
+            )
+          })
+          :
+          null
+        }
+      </div>
+        <Button className='round-button-menu' onClick={() => setModal(!modal)} text='+'/>
         <AnimatePresence initial={false}>
           {modal && <Modal handleClose={() => setModal(false)}>
               <TextInput className="input-field" placeholder="Deck Name" onChange={(e) => setDeck({...deck, deckName: e.target.value})}/>
@@ -54,6 +57,7 @@ export default function Dashboard() {
               </div>
             </Modal>}
         </AnimatePresence>
+    </div>
     </div>
   )
 }

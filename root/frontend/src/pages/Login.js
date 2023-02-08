@@ -36,7 +36,7 @@ export default function Login() {
           <TextInput type='email' placeholder="E-Mail" onChange={(e) => setFormData({...formData, email: e.target.value})}/>
           <TextInput type='password' placeholder="Password" onChange={(e) => setFormData({...formData, password: e.target.value})}/>
           <TextInput type='password' placeholder="Password"/>
-          <Button className='round-button-static' text="Sign Up" onClick={() => register()}/>
+          <Button className='round-button-menu' text="Sign Up" onClick={() => register()}/>
           <Button className='simple-text-button' onClick={() => setSigningUp(false)}>Log In</Button>
         </div>
         : 
@@ -44,7 +44,7 @@ export default function Login() {
           <h1>Log In</h1>
           <TextInput type='email' placeholder="E-Mail" onChange={(e) => setFormData({...formData, email: e.target.value})}/>
           <TextInput type='password' placeholder="Password" onChange={(e) => setFormData({...formData, password: e.target.value})}/>
-          <Button className='round-button-static' text="Log In" onClick={login}/>
+          <Button className='round-button-menu' text="Log In" onClick={login}/>
           <Button className='simple-text-button' onClick={() => setSigningUp(true)}>Sign Up</Button>
         </div>
         }
