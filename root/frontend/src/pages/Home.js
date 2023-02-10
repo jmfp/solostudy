@@ -13,7 +13,7 @@ export default function Home() {
         <h1>Lets see if this text works the quick brown fox jumped over the lazy dog</h1>
       </Image>
       <div className='page-container'>
-          <p>Home</p>
+        <p style={{color: 'white'}}>Home</p>
       </div>
     </div>
     )
