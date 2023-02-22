@@ -34,8 +34,19 @@ const getDecks = async (req, res) =>{
     }
 }
 
+const deleteDeck = async (req, res)=>{
+    console.log("this happened")
+    console.log(req.query)
+    try {
+        const deck = await DeckModel.deleteOne({_id: req.query.id})
+    }catch{
+        res.send(error)
+    }
+}
+
 module.exports = {
     addDeck,
     getDeck,
-    getDecks
+    getDecks,
+    deleteDeck
 }
