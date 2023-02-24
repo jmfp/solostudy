@@ -20,7 +20,14 @@ export default function QuizPage() {
 
   const CalculateScore = () =>{
     //setScore((100 * score / (cardCount - 1)).toFixed(2))
-    setScore(score/(cardCount/100))
+    console.log(`Score ${score}`)
+    console.log(`CardCouunt ${cardCount}`)
+    if(score === cardCount - 1){
+      setScore(100)
+    }
+    else{
+      setScore((score/(cardCount/100)).toFixed(0))
+    }
   }
 
   const ShowCard = async () =>{
@@ -41,18 +48,22 @@ export default function QuizPage() {
 
   const CheckAnswer = (isCorrect) =>{
     //checks if the user was right about the card
-    if(isCorrect){
-      setScore(score+1)
-    }
+    
     //checking if the cards are in bounds
     if(index < cardCount - 1){
+      if(isCorrect){
+        setScore(score+1)
+      }
       setIndex(index+1)
       setFlipped(false)
     }
     //if it's the last card display results after the card is answered
     else{
-      setFinished(true)
+      if(isCorrect){
+        setScore(score+1)
+      }
       CalculateScore()
+      setFinished(true)
     }
     console.log(score)
   }

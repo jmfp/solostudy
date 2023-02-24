@@ -22,8 +22,8 @@ export default function DeckView(props) {
   return (
       <div className='deck-container' onClick={ViewDeck}>
         <p>{props.deckName}</p>
-        <div>
-          <CiTrash className='card-image' onClick={deleteDeck}/>
+        <div onClick={deleteDeck}>
+          <CiTrash className='card-image' />
         </div>
       </div>
   )
