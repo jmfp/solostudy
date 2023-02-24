@@ -19,16 +19,18 @@ export default function QuizPage() {
   }, [])
 
   const CalculateScore = () =>{
-    setScore((100 * score / (cardCount - 1)).toFixed(2))
+    //setScore((100 * score / (cardCount - 1)).toFixed(2))
+    setScore(score/(cardCount/100))
   }
 
   const ShowCard = async () =>{
     //picks a card to show
     //axios request to api for cards in database
-    await axios.get(`http://localhost:5000/api/decks/get-deck/${deckId}`).then(res =>{
+    await axios.get(`http://localhost:5000/api/decks/get-deck/${deckId}`, {headers: {'authorization': `Bearer ${localStorage.getItem("token")}`}}).then(res =>{
         console.log(res.data.cardsInDeck)
         setCardsInDeck(res.data.cardsInDeck)
         setCardCount(res.data.cardsInDeck.length)
+        console.log(res.data.cardsInDeck.length)
     })
   }
 
@@ -43,7 +45,7 @@ export default function QuizPage() {
       setScore(score+1)
     }
     //checking if the cards are in bounds
-    if(index < cardsInDeck.length -1){
+    if(index < cardCount - 1){
       setIndex(index+1)
       setFlipped(false)
     }
@@ -52,7 +54,7 @@ export default function QuizPage() {
       setFinished(true)
       CalculateScore()
     }
-    console.log(index)
+    console.log(score)
   }
 
   return (

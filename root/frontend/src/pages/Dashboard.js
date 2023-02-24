@@ -47,8 +47,7 @@ export default function Dashboard() {
           null
         }
       </div>
-      <div className='button-container'>
-
+      <div className='footer-container'>
         <Button className='round-button-menu' onClick={() => setModal(!modal)} text='+'/>
       </div>
         <AnimatePresence initial={false}>
