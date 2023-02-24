@@ -1,0 +1,11 @@
+.study-card{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: 80%;
+    //overflow-y: scroll;
+    justify-content: center;
+    align-items: center;
+    //background-color: $color-gray;
+    margin: 10px;
+}

@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function StudyCard(props) {
   return (
-    <div>
+    <div className='study-card'>
         {/*direction dictates if the front or back of the card is showing*/}
         {props.direction ? 
             <div>

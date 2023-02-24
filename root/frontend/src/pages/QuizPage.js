@@ -3,6 +3,7 @@ import CardView from '../components/CardView'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
 import Header from '../components/Header'
+import CircleStat from '../components/CircleStat'
 
 export default function QuizPage() {
 
@@ -84,7 +85,7 @@ export default function QuizPage() {
         />
       :
         <div className='large-container-primary'>
-          <p>{score}%</p>
+          <CircleStat value={`${score}%`}/>
         </div>
       }
     </div>

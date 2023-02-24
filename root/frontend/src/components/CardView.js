@@ -10,19 +10,15 @@ export default function CardView(props) {
   return (
     <div className='item-card-container'>
         {!props.flipped ? 
-            <div>
+            <div className='study-card'>
                 <p>{props.frontText}</p>
-                <div className="medium-container">
-                    {!props.flipFunction ? null : 
-                        <button className='cornered-button-static' onClick={props.flipFunction}>
-                            flip card
-                        </button>
-                    }
-                </div>
+                {!props.flipFunction ? null : 
+                    <Button className='round-button-menu' onClick={props.flipFunction} text='Flip'/>
+                }
             </div>
             
         : 
-            <div>
+            <div className='study-card'>
                 <p>{props.backText}</p>
                 <div className="medium-container">
                     <Button className='round-button-static' text='Correct' onClick={props.correctFunction}/>
