@@ -20,6 +20,6 @@ app.use('/api/users', require('./routes/Users'))
 app.use('/api/decks', require('./routes/Deck'))
 app.use('/api/cards', require('./routes/Card'))
 
-app.listen(process.env.PORT, () =>{
+app.listen(process.env.PORT || 5000, () =>{
     console.log(`server running on port ${process.env.PORT}`)
 })
