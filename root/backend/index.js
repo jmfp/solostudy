@@ -15,6 +15,7 @@ app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
 
+//app.get('/', (req, res) => { res.send('Hello from Express!')})
 app.use('/api/products', require("./routes/Products"))
 app.use('/api/users', require('./routes/Users'))
 app.use('/api/decks', require('./routes/Deck'))
