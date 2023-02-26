@@ -19,14 +19,14 @@ export default function DeckEdit() {
       navigate(`/quiz/${deckId}`)
     }
     const DeleteCard = async(cardToDelete) =>{
-        await axios.delete(`http://localhost:5000/api/cards/delete-card`, {data: {deck: deck, card: cardToDelete}, headers: {'authorization': `Bearer ${localStorage.getItem("token")}`}}).then(res =>{
+        await axios.delete(`${process.env.REACT_APP_API_ADDRESS}/api/cards/delete-card`, {data: {deck: deck, card: cardToDelete}, headers: {'authorization': `Bearer ${localStorage.getItem("token")}`}}).then(res =>{
             console.log(res.data)
         })
         GetDeck()
     }
 
     const AddCard = async () =>{
-        await axios.post(`http://localhost:5000/api/cards/add-card`, newCard, {headers: {'authorization': `Bearer ${localStorage.getItem("token")}`}}).then(res =>{
+        await axios.post(`${process.env.REACT_APP_API_ADDRESS}/api/cards/add-card`, newCard, {headers: {'authorization': `Bearer ${localStorage.getItem("token")}`}}).then(res =>{
             console.log(res.data)
             setCards([...cards, res.data])
         })
@@ -34,7 +34,7 @@ export default function DeckEdit() {
     }
 
     const GetDeck = async () =>{
-        await axios.get(`http://localhost:5000/api/decks/get-deck/${deckId}`, {headers: {'authorization': `Bearer ${localStorage.getItem("token")}`}}).then(res =>{
+        await axios.get(`${process.env.REACT_APP_API_ADDRESS}/api/decks/get-deck/${deckId}`, {headers: {'authorization': `Bearer ${localStorage.getItem("token")}`}}).then(res =>{
             console.log(res.data)
             setCards(res.data.cardsInDeck)
             setDeck(res.data)

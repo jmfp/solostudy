@@ -13,7 +13,7 @@ export default function Dashboard() {
   const [modal, setModal] = useState(false)
 
   const addDeck = async() =>{
-    await axios.post("http://localhost:5000/api/decks/add-deck", deck, {headers: {'authorization': `Bearer ${localStorage.getItem("token")}`}}).then(res =>{
+    await axios.post(`${process.env.REACT_APP_API_ADDRESS}/api/decks/add-deck`, deck, {headers: {'authorization': `Bearer ${localStorage.getItem("token")}`}}).then(res =>{
       console.log(res.data)
     })
     setModal(false)
@@ -21,7 +21,11 @@ export default function Dashboard() {
   }
 
   const GetDecks = async () =>{
-    await axios.get(`http://localhost:5000/api/decks/get-decks/${localStorage.getItem("userId")}`, {headers: {'authorization': `Bearer ${localStorage.getItem("token")}`}}).then(res =>{
+    //await axios.get(`http://localhost:5000/api/decks/get-decks/${localStorage.getItem("userId")}`, {headers: {'authorization': `Bearer ${localStorage.getItem("token")}`}}).then(res =>{
+    //  console.log(res.data)
+    //  setDecks(res.data)
+    //})
+    await axios.get(`${process.env.REACT_APP_API_ADDRESS}/api/decks/get-decks/${localStorage.getItem("userId")}`, {headers: {'authorization': `Bearer ${localStorage.getItem("token")}`}}).then(res =>{
       console.log(res.data)
       setDecks(res.data)
     })

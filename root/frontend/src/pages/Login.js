@@ -11,7 +11,7 @@ export default function Login() {
   const [formData, setFormData] = useState({email: '', password: ''})
 
   const login = () =>{
-    axios.post("http://localhost:5000/api/users/login", formData).then(res =>{
+    axios.post(`${process.env.REACT_APP_API_ADDRESS}/api/users/login`, formData).then(res =>{
       console.log(res.data)
       localStorage.setItem("token", res.data.token)
       localStorage.setItem("userObj", res.data.user)
@@ -23,7 +23,7 @@ export default function Login() {
   }
 
   const register = () =>{
-    axios.post("http://localhost:5000/api/users/add-user", formData).then(res =>{
+    axios.post(`${process.env.REACT_APP_API_ADDRESS}/api/users/add-user`, formData).then(res =>{
       console.log(res.data)
     })
   }

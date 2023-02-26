@@ -10,10 +10,10 @@ export default function DeckView(props) {
   }
 
   const deleteDeck = async()=>{
-    await axios.delete('http://localhost:5000/api/decks/delete-deck', {headers: {'authorization': `Bearer ${localStorage.getItem("token")}`}, params: {id: props.deckId}}).then(res =>{
+    await axios.delete(`${process.env.REACT_APP_API_ADDRESS}/api/decks/delete-deck`, {headers: {'authorization': `Bearer ${localStorage.getItem("token")}`}, params: {id: props.deckId}}).then(res =>{
       console.log(res.data)
     })
-    await axios.get(`http://localhost:5000/api/decks/get-decks/${localStorage.getItem("userId")}`, {headers: {'authorization': `Bearer ${localStorage.getItem("token")}`}}).then(res =>{
+    await axios.get(`${process.env.REACT_APP_API_ADDRESS}/api/decks/get-decks/${localStorage.getItem("userId")}`, {headers: {'authorization': `Bearer ${localStorage.getItem("token")}`}}).then(res =>{
       console.log(res.data)
       props.setDecks(res.data)
     })

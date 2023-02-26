@@ -6,10 +6,10 @@ export default function Register() {
   const [reqdata, setData] = useState({firstName: '', userName: 'akuno', email: 'testemail@gmail.com', password:'password'})
   const [focus, setFocus] = useState(true)
   const addUser = ()=>{
-    axios.post('http://localhost:5000/api/users/add-user', reqdata)
+    axios.post(`${process.env.REACT_APP_API_ADDRESS}/api/users/add-user`, reqdata)
   }
   const login = () =>{
-    axios.post('http://localhost:5000/api/users/login', reqdata).then(res =>{
+    axios.post(`${process.env.REACT_APP_API_ADDRESS}/api/users/login`, reqdata).then(res =>{
       console.log(res.data)
       localStorage.setItem('user', res.data._id)
       localStorage.setItem('auth', res.data.auth)
