@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import {Link, useNavigate} from 'react-router-dom'
 import {RiDashboard3Fill, RiUser3Fill} from 'react-icons/ri'
+import { CiHome } from 'react-icons/ci'
 import Button from './Button'
 import Modal from './Modal'
 
@@ -20,7 +21,7 @@ export default function Header() {
     navigate(`/login`)
   }
   return (
-    <header className='header' style={{textDecoration: 'none'}}>
+    <header className='header' style={{color: "white", textDecoration: 'none'}}>
       {modal ? 
           <Modal>
             <Button text='x' className='round-button-static' onClick={() => setModal(false)}/>
@@ -28,11 +29,13 @@ export default function Header() {
         :
         null
       }
-      <Link to='/' style={{textDecoration: "none"}}>Home</Link>
+      <Link to='/' style={{color: "white", textDecoration: "none"}}>
+        <CiHome/>
+      </Link>
       {localStorage.getItem("authStatus") ? 
 
-        <Link to='/dashboard' style={{textDecoration: "none"}}>
-          <RiDashboard3Fill/>
+        <Link to='/dashboard' style={{color: "white", textDecoration: "none"}}>
+          Dashboard
         </Link>
       : 
         null
