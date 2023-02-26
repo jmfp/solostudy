@@ -29,8 +29,10 @@ export default function CardView(props) {
         <div className='service-container-3'>
 
             {!props.flipFunction ? 
-            <div onClick={props.onDelete}>
-                <CiTrash/>
+            <div className='delete-button-container'>
+                <div onClick={props.onDelete}>
+                    <CiTrash/>
+                </div>
             </div>
             : 
                 <div>

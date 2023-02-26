@@ -44,7 +44,7 @@ export default function Dashboard() {
         {decks.length > 0 ?
           decks.map(deck =>{
             return(
-              <DeckView deckName={deck.deckName} deckId={deck._id} setDeck={() => setDeck}/>
+              <DeckView deckName={deck.deckName} deckId={deck._id} setDeck={setDeck}/>
             )
           })
           :

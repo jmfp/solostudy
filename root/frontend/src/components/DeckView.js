@@ -1,7 +1,7 @@
 import React from 'react'
 import {useNavigate} from 'react-router-dom'
 import axios from 'axios'
-import {CiTrash} from 'react-icons/ci'
+import {CiTrash, CiEdit} from 'react-icons/ci'
 
 export default function DeckView(props) {
   const navigate = useNavigate()
@@ -15,15 +15,20 @@ export default function DeckView(props) {
     })
     await axios.get(`${process.env.REACT_APP_API_ADDRESS}/api/decks/get-decks/${localStorage.getItem("userId")}`, {headers: {'authorization': `Bearer ${localStorage.getItem("token")}`}}).then(res =>{
       console.log(res.data)
-      props.setDecks(res.data)
+      props.setDeck(res.data)
     })
   }
 
   return (
-      <div className='deck-container' onClick={ViewDeck}>
+      <div className='deck-container'>
         <p>{props.deckName}</p>
-        <div onClick={deleteDeck}>
-          <CiTrash className='card-image' />
+        <div className='delete-button-container'>
+          <div className='delete-button' onClick={deleteDeck}>
+            <CiTrash className='card-image' />
+          </div>
+          <div className='delete-button'>
+            <CiEdit onClick={ViewDeck}/>
+          </div>
         </div>
       </div>
   )
