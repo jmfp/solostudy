@@ -34,7 +34,7 @@ export default function QuizPage() {
   const ShowCard = async () =>{
     //picks a card to show
     //axios request to api for cards in database
-    await axios.get(`http://localhost:5000/api/decks/get-deck/${deckId}`, {headers: {'authorization': `Bearer ${localStorage.getItem("token")}`}}).then(res =>{
+    await axios.get(`${process.env.REACT_APP_API_ADDRESS}/api/decks/get-deck/${deckId}`, {headers: {'authorization': `Bearer ${localStorage.getItem("token")}`}}).then(res =>{
         console.log(res.data.cardsInDeck)
         setCardsInDeck(res.data.cardsInDeck)
         setCardCount(res.data.cardsInDeck.length)
