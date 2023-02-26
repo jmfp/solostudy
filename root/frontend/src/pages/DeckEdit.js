@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import {json, useParams} from 'react-router-dom'
+import {useParams} from 'react-router-dom'
 import axios from 'axios'
 import CardView from '../components/CardView'
 import { FaPlusCircle } from 'react-icons/fa'
@@ -7,16 +7,21 @@ import TextInput from '../components/TextInput'
 import Button from '../components/Button'
 import {useNavigate} from 'react-router-dom'
 import Header from '../components/Header'
+import Modal from '../components/Modal'
+import { AnimatePresence } from 'framer-motion'
 
 export default function DeckEdit() {
     const [cards, setCards] = useState()
     const [deck, setDeck] = useState()
     const [newCard, setNewCard] = useState({deck: useParams('deckId').deckId, front: '', back: ''})
+    const [modal, setModal] = useState(false)
     let {deckId} = useParams()
 
     const navigate = useNavigate()
     const Study = () =>{
-      navigate(`/quiz/${deckId}`)
+      if(cards.length > 0){
+        navigate(`/quiz/${deckId}`)
+      }
     }
     const DeleteCard = async(cardToDelete) =>{
         await axios.delete(`${process.env.REACT_APP_API_ADDRESS}/api/cards/delete-card`, {data: {deck: deck, card: cardToDelete}, headers: {'authorization': `Bearer ${localStorage.getItem("token")}`}}).then(res =>{
@@ -31,6 +36,9 @@ export default function DeckEdit() {
             setCards([...cards, res.data])
         })
         GetDeck()
+        if(modal){
+          setModal(false)
+        }
     }
 
     const GetDeck = async () =>{
@@ -60,15 +68,20 @@ export default function DeckEdit() {
                 })
             }
         </div>
-        <div className='outline-container-rounded'>
-        <h1>Add New Card</h1>
-        <TextInput className="input-field" placeholder='New Card Front' onChange={(e) => setNewCard({...newCard, front: e.target.value})}/>
-        <TextInput className="input-field" placeholder='New Card Back' onChange={(e) => setNewCard({...newCard, back: e.target.value})}/>
-        <div className='bottom-menu'>
-          <FaPlusCircle onClick={AddCard} />
+        <AnimatePresence initial={false}>
+          {modal && <Modal handleClose={() => setModal(false)}>
+            <TextInput className="input-field" placeholder="Front" onChange={(e) => setNewCard({...newCard, front: e.target.value})}/>
+            <TextInput className="input-field" placeholder='New Card Back' onChange={(e) => setNewCard({...newCard, back: e.target.value})}/>
+            <div className='modal-button'>
+              <Button className="round-button-static" onClick={AddCard} text="Add Card"/>
+              <Button className='round-button-static' onClick={() => setModal(false)} text="Cancel"/>
+            </div>
+          </Modal>}
+        </AnimatePresence>
+        <div className='footer-container'>
+          <Button className='round-button-menu' onClick={() => setModal(!modal)} text='+'/>
           <Button className='round-button-menu' text='Study' onClick={Study}/>
         </div>
-      </div>
     </div>
   )
 }

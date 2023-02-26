@@ -9,25 +9,15 @@ export default function DeckView(props) {
     navigate(`/deck/${props.deckId}`)
   }
 
-  const deleteDeck = async()=>{
-    await axios.delete(`${process.env.REACT_APP_API_ADDRESS}/api/decks/delete-deck`, {headers: {'authorization': `Bearer ${localStorage.getItem("token")}`}, params: {id: props.deckId}}).then(res =>{
-      console.log(res.data)
-    })
-    await axios.get(`${process.env.REACT_APP_API_ADDRESS}/api/decks/get-decks/${localStorage.getItem("userId")}`, {headers: {'authorization': `Bearer ${localStorage.getItem("token")}`}}).then(res =>{
-      console.log(res.data)
-      props.setDeck(res.data)
-    })
-  }
-
   return (
       <div className='deck-container'>
         <p>{props.deckName}</p>
         <div className='delete-button-container'>
-          <div className='delete-button' onClick={deleteDeck}>
+          <div className='delete-button' onClick={() => props.deleteDeck(props.deckId)}>
             <CiTrash className='card-image' />
           </div>
-          <div className='delete-button'>
-            <CiEdit onClick={ViewDeck}/>
+          <div className='delete-button' onClick={ViewDeck}>
+            <CiEdit/>
           </div>
         </div>
       </div>

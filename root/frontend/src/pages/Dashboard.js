@@ -11,7 +11,7 @@ export default function Dashboard() {
   const [decks, setDecks] = useState([])  
   const [deck, setDeck] = useState({deckOwner: localStorage.getItem("userId"), deckName: '', cardsInDeck: [{}]})
   const [modal, setModal] = useState(false)
-
+  
   const addDeck = async() =>{
     await axios.post(`${process.env.REACT_APP_API_ADDRESS}/api/decks/add-deck`, deck, {headers: {'authorization': `Bearer ${localStorage.getItem("token")}`}}).then(res =>{
       console.log(res.data)
@@ -21,13 +21,15 @@ export default function Dashboard() {
   }
 
   const GetDecks = async () =>{
-    //await axios.get(`http://localhost:5000/api/decks/get-decks/${localStorage.getItem("userId")}`, {headers: {'authorization': `Bearer ${localStorage.getItem("token")}`}}).then(res =>{
-    //  console.log(res.data)
-    //  setDecks(res.data)
-    //})
     await axios.get(`${process.env.REACT_APP_API_ADDRESS}/api/decks/get-decks/${localStorage.getItem("userId")}`, {headers: {'authorization': `Bearer ${localStorage.getItem("token")}`}}).then(res =>{
       console.log(res.data)
       setDecks(res.data)
+    })
+  }
+
+  const deleteDeck = async(deckId)=>{
+    await axios.delete(`${process.env.REACT_APP_API_ADDRESS}/api/decks/delete-deck`, {headers: {'authorization': `Bearer ${localStorage.getItem("token")}`}, params: {id: deckId}}).then(res =>{
+      console.log(res.data)
     })
   }
 
@@ -44,7 +46,7 @@ export default function Dashboard() {
         {decks.length > 0 ?
           decks.map(deck =>{
             return(
-              <DeckView deckName={deck.deckName} deckId={deck._id} setDeck={setDeck}/>
+              <DeckView deckName={deck.deckName} deckId={deck._id} deleteDeck={deleteDeck}/>
             )
           })
           :
