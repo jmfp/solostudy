@@ -33,6 +33,10 @@
     }
 }
 
+h1{
+    font-size: 64px;
+}
+
 .large-container{
     display: flex;
     flex-direction: column;
@@ -43,6 +47,7 @@
     background-color: $color-dark;
     padding-top: 20px;
     padding-bottom: 20px;
+    color: $color-primary;
 }
 
 .service-container-3{

@@ -1,6 +1,5 @@
 import React from 'react'
 import {useNavigate} from 'react-router-dom'
-import axios from 'axios'
 import {CiTrash, CiEdit} from 'react-icons/ci'
 
 export default function DeckView(props) {

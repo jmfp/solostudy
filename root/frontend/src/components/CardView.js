@@ -1,8 +1,5 @@
 import React from 'react'
-import { BsFillCheckCircleFill  } from 'react-icons/bs'
-import { MdCancel  } from 'react-icons/md'
 import {CiTrash} from 'react-icons/ci'
-import {FcFullTrash} from 'react-icons/fc'
 import Button from './Button'
 
 export default function CardView(props) {

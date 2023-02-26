@@ -4,6 +4,7 @@ import axios from 'axios'
 import { useParams } from 'react-router-dom'
 import Header from '../components/Header'
 import CircleStat from '../components/CircleStat'
+import Button from '../components/Button'
 
 export default function QuizPage() {
 
@@ -19,16 +20,27 @@ export default function QuizPage() {
     ShowCard()
   }, [])
 
-  const CalculateScore = () =>{
+  const CalculateScore = async () =>{
     //setScore((100 * score / (cardCount - 1)).toFixed(2))
     console.log(`Score ${score}`)
     console.log(`CardCouunt ${cardCount}`)
     if(score === cardCount - 1){
-      setScore(100)
+      await setScore(100)
     }
     else{
       setScore((score/(cardCount/100)).toFixed(0))
     }
+  }
+
+  const finish = async ()=>{
+    CalculateScore()
+    await setFinished(true)
+  }
+
+  const reset = async ()=>{
+    setIndex(0)
+    setFinished(false)
+    setScore(0)
   }
 
   const ShowCard = async () =>{
@@ -47,25 +59,24 @@ export default function QuizPage() {
     setFlipped(true)
   }
 
-  const CheckAnswer = (isCorrect) =>{
+  const CheckAnswer = async(isCorrect) =>{
     //checks if the user was right about the card
-    
+    if(isCorrect){
+      await setScore(score+1)
+    }
     //checking if the cards are in bounds
     if(index < cardCount - 1){
-      if(isCorrect){
-        setScore(score+1)
-      }
-      setIndex(index+1)
-      setFlipped(false)
+      await setIndex(index+1)
+      await setFlipped(false)
     }
     //if it's the last card display results after the card is answered
-    else{
-      if(isCorrect){
-        setScore(score+1)
-      }
-      CalculateScore()
-      setFinished(true)
+    if(index == cardCount - 1){
+      //await CalculateScore()
+      await finish()
     }
+    //else{
+    //  
+    //}
     console.log(score)
   }
 
@@ -84,8 +95,10 @@ export default function QuizPage() {
           totalCards={cardCount}
         />
       :
-        <div className='large-container-primary'>
+        <div className='large-container'>
+          <h1>{`Your Score!`}</h1>
           <CircleStat value={`${score}%`}/>
+          <Button className='fun-button' text='Retry' onClick={reset}/>
         </div>
       }
     </div>

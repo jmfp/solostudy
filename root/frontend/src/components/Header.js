@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
 import {Link, useNavigate} from 'react-router-dom'
-import {RiDashboard3Fill, RiUser3Fill} from 'react-icons/ri'
 import { CiHome } from 'react-icons/ci'
 import Button from './Button'
 import Modal from './Modal'

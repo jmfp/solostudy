@@ -2,7 +2,6 @@ import React from 'react'
 
 import { motion } from 'framer-motion'
 import Backdrop from './Backdrop'
-import Button from './Button'
 
 const dropIn = {
     //custom animation states

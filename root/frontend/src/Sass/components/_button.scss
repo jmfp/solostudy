@@ -53,6 +53,29 @@
     }
 }
 
+.fun-button{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: $color-white;
+    border-radius: 12px;
+    border: 2px solid;
+    border-color: $color-primary;
+    width: 10%;
+    height: 30px;
+    margin: 10px;
+    background-color: $color-primary;
+    font-size: 24px;
+    &:hover{
+        cursor: pointer;
+        background-color: $color-dark;
+        color: $color-primary;
+
+        transition: margin-top 4s;
+    }
+}
+
 @media (max-width: 1020px){
     .round-button-menu{
         display: flex;
