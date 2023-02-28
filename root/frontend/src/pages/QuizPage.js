@@ -23,7 +23,7 @@ export default function QuizPage() {
   const CalculateScore = async () =>{
     //setScore((100 * score / (cardCount - 1)).toFixed(2))
     console.log(`Score ${score}`)
-    console.log(`CardCouunt ${cardCount}`)
+    console.log(`CardCount ${cardCount}`)
     if(score === cardCount - 1){
       await setScore(100)
     }
@@ -73,10 +73,8 @@ export default function QuizPage() {
     if(index == cardCount - 1){
       //await CalculateScore()
       await finish()
+      
     }
-    //else{
-    //  
-    //}
     console.log(score)
   }
 
