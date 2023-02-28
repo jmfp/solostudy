@@ -12,11 +12,11 @@ export default function DeckView(props) {
       <div className='deck-container'>
         <p>{props.deckName}</p>
         <div className='delete-button-container'>
-          <div className='delete-button' onClick={() => props.deleteDeck(props.deckId)}>
-            <CiTrash className='card-image' />
-          </div>
           <div className='delete-button' onClick={ViewDeck}>
             <CiEdit/>
+          </div>
+          <div className='delete-button' onClick={() => props.deleteDeck(props.deckId)}>
+            <CiTrash className='card-image' />
           </div>
         </div>
       </div>
