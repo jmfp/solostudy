@@ -62,7 +62,7 @@
     border-radius: 12px;
     border: 2px solid;
     border-color: $color-primary;
-    width: 10%;
+    width: 20%;
     height: 30px;
     margin: 10px;
     background-color: $color-primary;
@@ -71,7 +71,10 @@
         cursor: pointer;
         background-color: $color-dark;
         color: $color-primary;
-        transition: margin-top 4s;
+        //transition: margin-top 4s;
+    }
+    &:active{
+        transform: translateY(4px);
     }
 }
 

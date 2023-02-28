@@ -6,6 +6,7 @@ const DeckSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    average: Number,
     cardsInDeck:[{}]
 }, 
 {

@@ -3,7 +3,7 @@ import React from 'react'
 export default function Image(props) {
   if(props.backgroundImage){
     return (
-        <div className={props.className} style={{backgroundImage: `url(${props.image})`}}>
+        <div className={props.className} style={{backgroundImage: `url(${props.image})`, color: "white", textAlign: "center"}}>
             {props.children}
         </div>
       )
