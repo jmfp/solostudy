@@ -1,4 +1,3 @@
-
 .page-container{
     display: flex;
     flex-direction: column;
@@ -6,6 +5,7 @@
     justify-content: center;
     width: 100%;
     height: 100vh;
+    overflow-x: hidden;
     background-color: $color-dark;
     //@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
 }
