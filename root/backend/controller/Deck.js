@@ -6,6 +6,7 @@ const addDeck = async (req, res) =>{
         const deck = await DeckModel.create({
             deckOwner,
             deckName,
+            average: 0,
             cards
         })
         res.send((200), deck)
