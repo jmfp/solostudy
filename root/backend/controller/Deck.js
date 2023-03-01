@@ -16,7 +16,7 @@ const addDeck = async (req, res) =>{
 }
 
 const getDeck = async (req, res) =>{
-    console.log(req.params)
+    //console.log(req.params)
     try{
         const deck = await DeckModel.findOne({_id: req.params.id})
         res.send((200), deck)
@@ -26,7 +26,7 @@ const getDeck = async (req, res) =>{
 }
 
 const getDecks = async (req, res) =>{
-    console.log(req.params)
+    //console.log(req.params)
     try{
         const deck = await DeckModel.find({deckOwner: req.params.id})
         res.send((200), deck)
@@ -36,8 +36,6 @@ const getDecks = async (req, res) =>{
 }
 
 const deleteDeck = async (req, res)=>{
-    console.log("this happened")
-    console.log(req.query)
     try {
         const deck = await DeckModel.deleteOne({_id: req.query.id})
     }catch{

@@ -8,6 +8,7 @@ import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import DeckEdit from './pages/DeckEdit';
 import QuizPage from './pages/QuizPage';
+import ResultPage from './pages/ResultPage';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard/>}/>
           <Route path="/deck/:deckId" element={<DeckEdit/>}/>
           <Route path="/quiz/:deckId" element={<QuizPage/>}/>
+          <Route path="/results/:deckId/:score" element={<ResultPage/>}/>
         </Routes>
       </Router>
     </div>

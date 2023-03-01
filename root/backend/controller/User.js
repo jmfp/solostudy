@@ -11,7 +11,7 @@ const generateToken = (id) =>{
 
 const addUser = async (req, res) =>{
     //destruct request for fields needed
-    console.log(req.body)
+    //console.log(req.body)
     const { email, password} = req.body
     if(!email || !password){
         res.status(400).json({message: "missing fields"})
@@ -48,8 +48,6 @@ const addUser = async (req, res) =>{
 const loginUser = async (req, res) =>{
     const {email, password} = req.body
     const user = await UserModel.findOne({email})
-    console.log(user)
-
     if(user && bcrypt.compare(password, user.password)){
         res.json({
             user: user,
