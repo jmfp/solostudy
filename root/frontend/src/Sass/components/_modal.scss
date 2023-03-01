@@ -12,9 +12,10 @@
 }
 
 .modal{
-    width: clamp(50%, 700px, 90%);
-    height: min(50%, 700px);
-    margin: auto;
+    //width: clamp(50%, 700px, 90%);
+    width: 90%;
+    height: 350px;
+    //margin: auto;
     padding: 10px;
     border-radius: 24px;
     border-style: solid;
@@ -24,6 +25,7 @@
     align-items: center;
     border-color: $color-primary;
     background-color: $color-dark;
+    overflow-x: hidden;
 }
 
 .modal-button{

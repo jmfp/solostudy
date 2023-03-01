@@ -72,8 +72,8 @@ export default function DeckEdit() {
             <TextInput className="input-field" placeholder="Front" onChange={(e) => setNewCard({...newCard, front: e.target.value})}/>
             <TextInput className="input-field" placeholder='New Card Back' onChange={(e) => setNewCard({...newCard, back: e.target.value})}/>
             <div className='modal-button'>
-              <Button className="round-button-static" onClick={AddCard} text="Add Card"/>
-              <Button className='round-button-static' onClick={() => setModal(false)} text="Cancel"/>
+              <Button className="fun-button" onClick={AddCard} text="Add Card"/>
+              <Button className='fun-button' onClick={() => setModal(false)} text="Cancel"/>
             </div>
           </Modal>}
         </AnimatePresence>
