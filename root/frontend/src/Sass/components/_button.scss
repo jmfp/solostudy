@@ -1,0 +1,259 @@
+
+.simple-text-button{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: $color-primary;
+    border-color: $color-primary;
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+.round-button-static{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: $color-white;
+    border-radius: 20px;
+    border: 2px solid;
+    border-color: $color-primary;
+    width: 30%;
+    height: 60%;
+    margin: 10px;
+    background-color: $color-primary;
+    font-size: 36px;
+    &:hover{
+        cursor: pointer;
+        background-color: $color-dark;
+        color: $color-primary;
+    }
+}
+
+.round-button-menu{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: $color-white;
+    border-radius: 12px;
+    border: 2px solid;
+    border-color: $color-primary;
+    width: 10%;
+    height: 30px;
+    margin: 10px;
+    background-color: $color-primary;
+    font-size: 24px;
+    &:hover{
+        cursor: pointer;
+        background-color: $color-dark;
+        color: $color-primary;
+    }
+}
+
+.fun-button{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: $color-white;
+    border-radius: 12px;
+    border: 2px solid;
+    border-color: $color-primary;
+    width: 20%;
+    height: 30px;
+    margin: 10px;
+    background-color: $color-primary;
+    font-size: 24px;
+    &:hover{
+        cursor: pointer;
+        background-color: $color-dark;
+        color: $color-primary;
+        //transition: margin-top 4s;
+    }
+    &:active{
+        transform: translateY(4px);
+    }
+}
+
+@media (max-width: 1020px){
+    .round-button-menu{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: $color-white;
+        border-radius: 12px;
+        border: 2px solid;
+        border-color: $color-primary;
+        width: 10%;
+        height: 30px;
+        margin: 10px;
+        background-color: $color-primary;
+        font-size: 16px;
+        &:hover{
+            cursor: pointer;
+            background-color: $color-dark;
+            color: $color-primary;
+        }
+    }
+}
+
+@media (max-width: 708px){
+    .round-button-menu{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: $color-white;
+        border-radius: 12px;
+        border: 2px solid;
+        border-color: $color-primary;
+        width: 15%;
+        height: 30px;
+        margin: 10px;
+        background-color: $color-primary;
+        font-size: 16px;
+        &:hover{
+            cursor: pointer;
+            background-color: $color-dark;
+            color: $color-primary;
+        }
+    }
+}
+
+@media (max-width: 547px){
+    .round-button-menu{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: $color-white;
+        border-radius: 12px;
+        border: 2px solid;
+        border-color: $color-primary;
+        width: 15%;
+        height: 30px;
+        margin: 10px;
+        background-color: $color-primary;
+        font-size: 16px;
+        &:hover{
+            cursor: pointer;
+            background-color: $color-dark;
+            color: $color-primary;
+        }
+    }
+}
+
+@media (max-width: 472px){
+    .round-button-menu{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: $color-white;
+        border-radius: 12px;
+        border: 2px solid;
+        border-color: $color-primary;
+        width: 25%;
+        height: 30px;
+        margin: 10px;
+        background-color: $color-primary;
+        font-size: 16px;
+        &:hover{
+            cursor: pointer;
+            background-color: $color-dark;
+            color: $color-primary;
+        }
+    }
+}
+
+@media (max-width: 283px){
+    .round-button-menu{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: $color-white;
+        border-radius: 12px;
+        border: 2px solid;
+        border-color: $color-primary;
+        width: 30%;
+        height: 30px;
+        margin: 10px;
+        background-color: $color-primary;
+        font-size: 16px;
+        &:hover{
+            cursor: pointer;
+            background-color: $color-dark;
+            color: $color-primary;
+        }
+    }
+}
+
+.cornered-button-static{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: $color-white;
+    border-radius: 5px;
+    border: 2px solid;
+    border-color: $color-primary;
+    width: 30%;
+    height: 60%;
+    margin: 10px;
+    background-color: $color-primary;
+    &:hover{
+        cursor: pointer;
+        background-color: $color-white;
+        color: $color-primary;
+    }
+}
+
+.add-button{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: $color-white;
+    width: 50px;
+    height: 50px;
+    background-color: $color-primary;
+    border-radius: 6px;
+    filter: drop-shadow(4px 4px 4px #221011);
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+.button-container{
+    width: 100%;
+    bottom: 20px;
+    left: 50%;
+    position: absolute;
+}
+
+.delete-button{
+    display: flex;
+    width: 50px;
+    height: 50px;
+    background-color: $color-primary;
+    border-radius: 8px;
+    color: $color-white;
+
+    &:hover{
+        cursor: pointer;
+    }
+
+    &-container{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        width: 100%;
+    }
+}
+

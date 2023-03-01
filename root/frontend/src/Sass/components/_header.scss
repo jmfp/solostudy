@@ -1,0 +1,79 @@
+.header{
+    display: flex;
+    //float: right;
+    top: 5;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 50px;
+    width: 100%;
+    background-color: $color-dark;
+    position:static;
+    color: $color-primary;
+    font-size: 24px;
+    text-decoration: none;
+    padding-top: 15px;
+    &-invis{
+        background-color: rgba($color: #000000, $alpha: 0.0);
+        float: right;
+        top: 5;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+        height: 50px;
+        width: 100%;
+        position:static;
+        color: $color-white;
+        font-size: 24px;
+        text-decoration: none;
+        padding-top: 15px;
+        text-decoration: none;
+    }
+}
+
+
+
+.bottom-menu{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    height: 50px;
+    width: 100%;
+    background-color: $color-dark;
+    position:static;
+    color: $color-primary;
+    font-size: 48px;
+    text-decoration: none;
+}
+
+.text-container{
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    order: 2;
+    text-align: right;
+    align-items: center;
+    justify-content: space-around;
+    height: 50px;
+    width: 30%;
+    padding-right: 50px;
+    padding-bottom: 10px;
+    text-decoration: none;
+    color: $color-white;
+}
+
+.logo-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    height: 80%;
+    width: auto;
+    cursor: pointer;
+    background-color: rgba($color: #000000, $alpha: 0);
+    background-color: transparent;
+    text-decoration: none;
+}
