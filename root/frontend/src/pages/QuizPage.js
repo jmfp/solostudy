@@ -14,24 +14,11 @@ export default function QuizPage() {
   const [finished, setFinished] = useState(false)
   const [index, setIndex] = useState(0)
   const [score, setScore] = useState(0)
-  const [percentScore, setPercentScore] = useState(0)
-  const navigate = useNavigate()
   let {deckId} = useParams()
-  let total = 0;
 
   useEffect(() => {
     ShowCard()
   }, [])
-
-  const CalculateScore = async () =>{
-    //setScore((100 * score / (cardCount - 1)).toFixed(2))
-    //console.log(`Score ${score}`)
-    //console.log(`CardCount ${cardCount}`)
-    //
-    //setScore((score/(cardCount/100)).toFixed(0))
-    setFinished(true)
-    console.log((score/(cardCount/100)).toFixed(0))
-  }
 
   const reset = ()=>{
     setIndex(0)
@@ -62,24 +49,19 @@ export default function QuizPage() {
       setFlipped(false)
     }else{
       setScore(score+1)
-      //setFinished(true)
+      setFinished(true)
       setFlipped(false)
-      //finish()
-      await CalculateScore()
     }
     console.log(`new score is ${score} ${finished}`)
   }
 
   const incorrectAnswer = async () =>{
     if(index < cardCount - 1){
-      //setScore(score+1)
       setIndex(index+1)
       setFlipped(false)
     }else{
-      //setFinished(true)
+      setFinished(true)
       setFlipped(false)
-      //finish()
-      await CalculateScore()
     }
     console.log(`new score is ${score}`)
   }
