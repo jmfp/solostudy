@@ -20,12 +20,14 @@ export default function QuizPage() {
     ShowCard()
   }, [])
 
+  //resets the quiz if  user wants
   const reset = ()=>{
     setIndex(0)
     setFinished(false)
     setScore(0)
   }
 
+  //handles getting the information from cards in the decks being studied
   const ShowCard = async () =>{
     //picks a card to show
     //axios request to api for cards in database
@@ -37,8 +39,8 @@ export default function QuizPage() {
     })
   }
 
+  //shows back of current card
   const FlipCard = () =>{
-    //shows back of current card
     setFlipped(true)
   }
 
