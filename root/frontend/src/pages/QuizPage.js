@@ -85,7 +85,7 @@ export default function QuizPage() {
       :
         <div className='large-container'>
           <h1>{`Your Score!`}</h1>
-          <CircleStat value={`${(score/(cardCount/100)).toFixed(0)}%`}/>
+          <CircleStat value={`${(score/(cardCount/100)).toFixed(0).toString()}%`}/>
           <Button className='fun-button' text='Retry' onClick={reset}/>
         </div>
       }
