@@ -1,15 +1,9 @@
 const mongoose = require("mongoose")
 
 const CourseSchema = new mongoose.Schema({
-    deck: String,
-    front: {
-        type: String,
-        required: true
-    },
-    back: {
-        type: String,
-        required: true
-    }
+    sections: [{
+        
+    }]
 }, 
 {
     timestamps: true
