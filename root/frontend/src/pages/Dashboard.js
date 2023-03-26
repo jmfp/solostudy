@@ -55,7 +55,7 @@ export default function Dashboard() {
       </div>
         <AnimatePresence initial={false}>
           {modal && <Modal handleClose={() => setModal(false)}>
-              <TextInput className="input-field" placeholder="Deck Name" onChange={(e) => setDeck({...deck, deckName: e.target.value})}/>
+              <TextInput className="input-field" placeholder="Enter Name" onChange={(e) => setDeck({...deck, deckName: e.target.value})}/>
               <div className='modal-button'>
                 <Button className="round-button-static" onClick={addDeck} text="+"/>
                 <Button className='round-button-static' onClick={() => setModal(false)} text="x"/>
