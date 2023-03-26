@@ -26,7 +26,8 @@ export default function Login() {
     axios.post(`${process.env.REACT_APP_API_ADDRESS}/api/users/add-user`, formData).then(res =>{
       console.log(res.data)
     })
-    navigate('/')
+    login()
+    //navigate('/')
   }
 
   return (
