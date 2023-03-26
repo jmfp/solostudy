@@ -9,6 +9,7 @@ import Dashboard from './pages/Dashboard';
 import DeckEdit from './pages/DeckEdit';
 import QuizPage from './pages/QuizPage';
 import ResultPage from './pages/ResultPage';
+import CourseDesign from './pages/CourseDesign';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/deck/:deckId" element={<DeckEdit/>}/>
           <Route path="/quiz/:deckId" element={<QuizPage/>}/>
           <Route path="/results/:deckId/:score" element={<ResultPage/>}/>
+          <Route path="/newcourse" element={<CourseDesign/>}/>
         </Routes>
       </Router>
     </div>

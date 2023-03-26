@@ -6,12 +6,13 @@ import Header from '../components/Header'
 import Modal from '../components/Modal'
 import TextInput from '../components/TextInput'
 import { AnimatePresence } from 'framer-motion'
+import { useNavigate } from 'react-router-dom'
 
 export default function Dashboard() {
   const [decks, setDecks] = useState([])  
   const [deck, setDeck] = useState({deckOwner: localStorage.getItem("userId"), deckName: '', cardsInDeck: [{}]})
   const [modal, setModal] = useState(false)
-  
+  const navigate = useNavigate()
   const addDeck = async() =>{
     await axios.post(`${process.env.REACT_APP_API_ADDRESS}/api/decks/add-deck`, deck, {headers: {'authorization': `Bearer ${localStorage.getItem("token")}`}}).then(res =>{
       console.log(res.data)
@@ -64,6 +65,7 @@ export default function Dashboard() {
         </AnimatePresence>
         <div className='footer-container'>
           <Button className='round-button-menu' onClick={() => setModal(!modal)} text='+'/>
+          <Button className='round-button-menu' onClick={() => navigate('/newcourse')} text='New Course'/>
         </div>
     </div>
     </div>

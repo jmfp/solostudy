@@ -3,6 +3,7 @@ import Button from '../components/Button'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import TextInput from '../components/TextInput'
+import Header from '../components/Header'
 
 export default function Login() {
   const navigate = useNavigate()
@@ -19,7 +20,7 @@ export default function Login() {
       localStorage.setItem("userId", res.data.user._id)
       setAuth(res.data.auth)
       navigate('/')
-    })
+    }).then(() => navigate('/'))
   }
 
   const register = () =>{
@@ -31,25 +32,28 @@ export default function Login() {
   }
 
   return (
-    <div className='page-container'>
-        {signingUp ? 
-        <div className='outline-container-rounded'>
-          <h1>Sign Up</h1>
-          <TextInput type='email' placeholder="E-Mail" onChange={(e) => setFormData({...formData, email: e.target.value})}/>
-          <TextInput type='password' placeholder="Password" onChange={(e) => setFormData({...formData, password: e.target.value})}/>
-          <TextInput type='password' placeholder="Password"/>
-          <Button className='round-button-menu' text="Sign Up" onClick={() => register()}/>
-          <Button className='simple-text-button' onClick={() => setSigningUp(false)}>Log In</Button>
-        </div>
-        : 
-        <div className='outline-container-rounded'>
-          <h1>Log In</h1>
-          <TextInput type='email' placeholder="E-Mail" onChange={(e) => setFormData({...formData, email: e.target.value})}/>
-          <TextInput type='password' placeholder="Password" onChange={(e) => setFormData({...formData, password: e.target.value})}/>
-          <Button className='round-button-menu' text="Log In" onClick={login}/>
-          <Button className='simple-text-button' onClick={() => setSigningUp(true)}>Sign Up</Button>
-        </div>
-        }
+    <div>
+      <Header/>
+      <div className='page-container'>
+          {signingUp ? 
+          <div className='outline-container-rounded'>
+            <h1>Sign Up</h1>
+            <TextInput type='email' placeholder="E-Mail" onChange={(e) => setFormData({...formData, email: e.target.value})}/>
+            <TextInput type='password' placeholder="Password" onChange={(e) => setFormData({...formData, password: e.target.value})}/>
+            <TextInput type='password' placeholder="Password"/>
+            <Button className='round-button-menu' text="Sign Up" onClick={() => register()}/>
+            <Button className='simple-text-button' onClick={() => setSigningUp(false)}>Log In</Button>
+          </div>
+          : 
+          <div className='outline-container-rounded'>
+            <h1>Log In</h1>
+            <TextInput type='email' placeholder="E-Mail" onChange={(e) => setFormData({...formData, email: e.target.value})}/>
+            <TextInput type='password' placeholder="Password" onChange={(e) => setFormData({...formData, password: e.target.value})}/>
+            <Button className='round-button-menu' text="Log In" onClick={() => login()}/>
+            <Button className='simple-text-button' onClick={() => setSigningUp(true)}>Sign Up</Button>
+          </div>
+          }
+      </div>
     </div>
   )
 }
